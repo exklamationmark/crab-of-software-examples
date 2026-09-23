@@ -1,0 +1,8 @@
+test:
+	nix flake check --all-systems
+
+build:
+	nix build .#homeConfigurations."mtong".activationPackage
+
+switch:
+	sudo nix run home-manager/master -- switch -b backup --flake .#mtong
